@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@ampproject/remapping@^2.2.0":
+"@ampproject/remapping@^2.2.0", "@ampproject/remapping@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.3.0.tgz#ed441b6fa600072520ce18b43d2c8cc8caecc7f4"
   dependencies:
@@ -192,6 +192,25 @@
 "@biomejs/cli-win32-x64@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-x64/-/cli-win32-x64-2.1.1.tgz#bc70ca227d7faf4269654401ee9a50ee6d5e468b"
+
+"@emnapi/core@^1.4.3":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.4.4.tgz#76620673f3033626c6d79b1420d69f06a6bb153c"
+  dependencies:
+    "@emnapi/wasi-threads" "1.0.3"
+    tslib "^2.4.0"
+
+"@emnapi/runtime@^1.4.3":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.4.4.tgz#19a8f00719c51124e2d0fbf4aaad3fa7b0c92524"
+  dependencies:
+    tslib "^2.4.0"
+
+"@emnapi/wasi-threads@1.0.3", "@emnapi/wasi-threads@^1.0.2":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@emnapi/wasi-threads/-/wasi-threads-1.0.3.tgz#83fa228bde0e71668aad6db1af4937473d1d3ab1"
+  dependencies:
+    tslib "^2.4.0"
 
 "@esbuild/aix-ppc64@0.25.6":
   version "0.25.6"
@@ -383,6 +402,12 @@
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/retry/-/retry-0.4.3.tgz#c2b9d2e374ee62c586d3adbea87199b1d7a7a6ba"
 
+"@isaacs/fs-minipass@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@isaacs/fs-minipass/-/fs-minipass-4.0.1.tgz#2d59ae3ab4b38fb4270bfa23d30f8e2e86c7fe32"
+  dependencies:
+    minipass "^7.0.4"
+
 "@jridgewell/gen-mapping@^0.3.12", "@jridgewell/gen-mapping@^0.3.5":
   version "0.3.12"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.12.tgz#2234ce26c62889f03db3d7fea43c1932ab3e927b"
@@ -404,6 +429,14 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
+
+"@napi-rs/wasm-runtime@^0.2.11":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-0.2.12.tgz#3e78a8b96e6c33a6c517e1894efbd5385a7cb6f2"
+  dependencies:
+    "@emnapi/core" "^1.4.3"
+    "@emnapi/runtime" "^1.4.3"
+    "@tybys/wasm-util" "^0.10.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -506,6 +539,113 @@
 "@rollup/rollup-win32-x64-msvc@4.44.2":
   version "4.44.2"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.44.2.tgz#660018c9696ad4f48abe8c5d56db53c81aadba25"
+
+"@tailwindcss/node@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/node/-/node-4.1.11.tgz#d626af65fc9872e5e9d8884791d7e3856e945359"
+  dependencies:
+    "@ampproject/remapping" "^2.3.0"
+    enhanced-resolve "^5.18.1"
+    jiti "^2.4.2"
+    lightningcss "1.30.1"
+    magic-string "^0.30.17"
+    source-map-js "^1.2.1"
+    tailwindcss "4.1.11"
+
+"@tailwindcss/oxide-android-arm64@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-android-arm64/-/oxide-android-arm64-4.1.11.tgz#1f387d8302f011b61c226deb0c3a1d2bd79c6915"
+
+"@tailwindcss/oxide-darwin-arm64@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-darwin-arm64/-/oxide-darwin-arm64-4.1.11.tgz#acd35ffb7e4eae83d0a3fe2f8ea36cfcc9b21f7e"
+
+"@tailwindcss/oxide-darwin-x64@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-darwin-x64/-/oxide-darwin-x64-4.1.11.tgz#a0022312993a3893d6ff0312d6e3c83c4636fef4"
+
+"@tailwindcss/oxide-freebsd-x64@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-freebsd-x64/-/oxide-freebsd-x64-4.1.11.tgz#dd8e55eb0b88fe7995b8148c0e0ae5fa27092d22"
+
+"@tailwindcss/oxide-linux-arm-gnueabihf@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-linux-arm-gnueabihf/-/oxide-linux-arm-gnueabihf-4.1.11.tgz#02ee99090988847d3f13d277679012cbffcdde37"
+
+"@tailwindcss/oxide-linux-arm64-gnu@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-linux-arm64-gnu/-/oxide-linux-arm64-gnu-4.1.11.tgz#4837559c102bebe65089879f6a0278ed473b4813"
+
+"@tailwindcss/oxide-linux-arm64-musl@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-linux-arm64-musl/-/oxide-linux-arm64-musl-4.1.11.tgz#bec465112a13a1383558ff36afdf28b8a8cb9021"
+
+"@tailwindcss/oxide-linux-x64-gnu@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-linux-x64-gnu/-/oxide-linux-x64-gnu-4.1.11.tgz#f9e47e6aa67ff77f32f7412bc9698d4278e101bf"
+
+"@tailwindcss/oxide-linux-x64-musl@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-linux-x64-musl/-/oxide-linux-x64-musl-4.1.11.tgz#7d6e8adcfb9bc84d8e2e2e8781d661edb9e41ba8"
+
+"@tailwindcss/oxide-wasm32-wasi@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-wasm32-wasi/-/oxide-wasm32-wasi-4.1.11.tgz#a1762f4939c6ebaa824696fda2fd7db1b85fbed2"
+  dependencies:
+    "@emnapi/core" "^1.4.3"
+    "@emnapi/runtime" "^1.4.3"
+    "@emnapi/wasi-threads" "^1.0.2"
+    "@napi-rs/wasm-runtime" "^0.2.11"
+    "@tybys/wasm-util" "^0.9.0"
+    tslib "^2.8.0"
+
+"@tailwindcss/oxide-win32-arm64-msvc@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-win32-arm64-msvc/-/oxide-win32-arm64-msvc-4.1.11.tgz#70ba392dca0fa3707ebe27d2bd6ac3e69d35e3b7"
+
+"@tailwindcss/oxide-win32-x64-msvc@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide-win32-x64-msvc/-/oxide-win32-x64-msvc-4.1.11.tgz#cdcb9eea9225a346c0695f67f621990b0534763f"
+
+"@tailwindcss/oxide@4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/oxide/-/oxide-4.1.11.tgz#569b668c99c337b7b8204bc5b6a833429755a05b"
+  dependencies:
+    detect-libc "^2.0.4"
+    tar "^7.4.3"
+  optionalDependencies:
+    "@tailwindcss/oxide-android-arm64" "4.1.11"
+    "@tailwindcss/oxide-darwin-arm64" "4.1.11"
+    "@tailwindcss/oxide-darwin-x64" "4.1.11"
+    "@tailwindcss/oxide-freebsd-x64" "4.1.11"
+    "@tailwindcss/oxide-linux-arm-gnueabihf" "4.1.11"
+    "@tailwindcss/oxide-linux-arm64-gnu" "4.1.11"
+    "@tailwindcss/oxide-linux-arm64-musl" "4.1.11"
+    "@tailwindcss/oxide-linux-x64-gnu" "4.1.11"
+    "@tailwindcss/oxide-linux-x64-musl" "4.1.11"
+    "@tailwindcss/oxide-wasm32-wasi" "4.1.11"
+    "@tailwindcss/oxide-win32-arm64-msvc" "4.1.11"
+    "@tailwindcss/oxide-win32-x64-msvc" "4.1.11"
+
+"@tailwindcss/vite@^4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/vite/-/vite-4.1.11.tgz#9af1c9d328b31e67c6a0657500bcaa78be6df9f7"
+  dependencies:
+    "@tailwindcss/node" "4.1.11"
+    "@tailwindcss/oxide" "4.1.11"
+    tailwindcss "4.1.11"
+
+"@tybys/wasm-util@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@tybys/wasm-util/-/wasm-util-0.10.0.tgz#2fd3cd754b94b378734ce17058d0507c45c88369"
+  dependencies:
+    tslib "^2.4.0"
+
+"@tybys/wasm-util@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@tybys/wasm-util/-/wasm-util-0.9.0.tgz#3e75eb00604c8d6db470bf18c37b7d984a0e3355"
+  dependencies:
+    tslib "^2.4.0"
 
 "@types/babel__core@^7.20.5":
   version "7.20.5"
@@ -726,6 +866,10 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chownr@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/chownr/-/chownr-3.0.0.tgz#9855e64ecd240a9cc4267ce8a4aa5d24a1da15e4"
+
 color-convert@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"
@@ -770,9 +914,20 @@ deep-is@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
 
+detect-libc@^2.0.3, detect-libc@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.4.tgz#f04715b8ba815e53b4d8109655b6508a6865a7e8"
+
 electron-to-chromium@^1.5.173:
   version "1.5.182"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.182.tgz#4ab73104f893938acb3ab9c28d7bec170c116b3e"
+
+enhanced-resolve@^5.18.1:
+  version "5.18.2"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.18.2.tgz#7903c5b32ffd4b2143eeb4b92472bd68effd5464"
+  dependencies:
+    graceful-fs "^4.2.4"
+    tapable "^2.2.0"
 
 esbuild@^0.25.0:
   version "0.25.6"
@@ -994,6 +1149,10 @@ globals@^16.0.0:
   version "16.3.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-16.3.0.tgz#66118e765ddaf9e2d880f7e17658543f93f1f667"
 
+graceful-fs@^4.2.4:
+  version "4.2.11"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
+
 graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
@@ -1039,6 +1198,10 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
 
+jiti@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/jiti/-/jiti-2.4.2.tgz#d19b7732ebb6116b06e2038da74a55366faef560"
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -1082,6 +1245,63 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+lightningcss-darwin-arm64@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-darwin-arm64/-/lightningcss-darwin-arm64-1.30.1.tgz#3d47ce5e221b9567c703950edf2529ca4a3700ae"
+
+lightningcss-darwin-x64@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-darwin-x64/-/lightningcss-darwin-x64-1.30.1.tgz#e81105d3fd6330860c15fe860f64d39cff5fbd22"
+
+lightningcss-freebsd-x64@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-freebsd-x64/-/lightningcss-freebsd-x64-1.30.1.tgz#a0e732031083ff9d625c5db021d09eb085af8be4"
+
+lightningcss-linux-arm-gnueabihf@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-linux-arm-gnueabihf/-/lightningcss-linux-arm-gnueabihf-1.30.1.tgz#1f5ecca6095528ddb649f9304ba2560c72474908"
+
+lightningcss-linux-arm64-gnu@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.30.1.tgz#eee7799726103bffff1e88993df726f6911ec009"
+
+lightningcss-linux-arm64-musl@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-linux-arm64-musl/-/lightningcss-linux-arm64-musl-1.30.1.tgz#f2e4b53f42892feeef8f620cbb889f7c064a7dfe"
+
+lightningcss-linux-x64-gnu@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.30.1.tgz#2fc7096224bc000ebb97eea94aea248c5b0eb157"
+
+lightningcss-linux-x64-musl@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.30.1.tgz#66dca2b159fd819ea832c44895d07e5b31d75f26"
+
+lightningcss-win32-arm64-msvc@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-win32-arm64-msvc/-/lightningcss-win32-arm64-msvc-1.30.1.tgz#7d8110a19d7c2d22bfdf2f2bb8be68e7d1b69039"
+
+lightningcss-win32-x64-msvc@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.30.1.tgz#fd7dd008ea98494b85d24b4bea016793f2e0e352"
+
+lightningcss@1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/lightningcss/-/lightningcss-1.30.1.tgz#78e979c2d595bfcb90d2a8c0eb632fe6c5bfed5d"
+  dependencies:
+    detect-libc "^2.0.3"
+  optionalDependencies:
+    lightningcss-darwin-arm64 "1.30.1"
+    lightningcss-darwin-x64 "1.30.1"
+    lightningcss-freebsd-x64 "1.30.1"
+    lightningcss-linux-arm-gnueabihf "1.30.1"
+    lightningcss-linux-arm64-gnu "1.30.1"
+    lightningcss-linux-arm64-musl "1.30.1"
+    lightningcss-linux-x64-gnu "1.30.1"
+    lightningcss-linux-x64-musl "1.30.1"
+    lightningcss-win32-arm64-msvc "1.30.1"
+    lightningcss-win32-x64-msvc "1.30.1"
+
 locate-path@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-6.0.0.tgz#55321eb309febbc59c4801d931a72452a681d286"
@@ -1097,6 +1317,12 @@ lru-cache@^5.1.1:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-5.1.1.tgz#1da27e6710271947695daf6848e847f01d84b920"
   dependencies:
     yallist "^3.0.2"
+
+magic-string@^0.30.17:
+  version "0.30.17"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.17.tgz#450a449673d2460e5bbcfba9a61916a1714c7453"
+  dependencies:
+    "@jridgewell/sourcemap-codec" "^1.5.0"
 
 merge2@^1.3.0:
   version "1.4.1"
@@ -1120,6 +1346,20 @@ minimatch@^9.0.4:
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.5.tgz#d74f9dd6b57d83d8e98cfb82133b03978bc929e5"
   dependencies:
     brace-expansion "^2.0.1"
+
+minipass@^7.0.4, minipass@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.2.tgz#93a9626ce5e5e66bd4db86849e7515e92340a707"
+
+minizlib@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-3.0.2.tgz#f33d638eb279f664439aa38dc5f91607468cb574"
+  dependencies:
+    minipass "^7.1.2"
+
+mkdirp@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-3.0.1.tgz#e44e4c5607fb279c168241713cc6e0fea9adcb50"
 
 ms@^2.1.3:
   version "2.1.3"
@@ -1309,6 +1549,25 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+tailwindcss@4.1.11, tailwindcss@^4.1.11:
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.11.tgz#799af3e98c19c5baaefafc6e0c16304a0e684854"
+
+tapable@^2.2.0:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.2.tgz#ab4984340d30cb9989a490032f086dbb8b56d872"
+
+tar@^7.4.3:
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-7.4.3.tgz#88bbe9286a3fcd900e94592cda7a22b192e80571"
+  dependencies:
+    "@isaacs/fs-minipass" "^4.0.0"
+    chownr "^3.0.0"
+    minipass "^7.1.2"
+    minizlib "^3.0.1"
+    mkdirp "^3.0.1"
+    yallist "^5.0.0"
+
 tinyglobby@^0.2.13:
   version "0.2.14"
   resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.14.tgz#5280b0cf3f972b050e74ae88406c0a6a58f4079d"
@@ -1325,6 +1584,10 @@ to-regex-range@^5.0.1:
 ts-api-utils@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-2.1.0.tgz#595f7094e46eed364c13fd23e75f9513d29baf91"
+
+tslib@^2.4.0, tslib@^2.8.0:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
@@ -1383,6 +1646,10 @@ word-wrap@^1.2.5:
 yallist@^3.0.2:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
+
+yallist@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/yallist/-/yallist-5.0.0.tgz#00e2de443639ed0d78fd87de0d27469fbcffb533"
 
 yocto-queue@^0.1.0:
   version "0.1.0"
