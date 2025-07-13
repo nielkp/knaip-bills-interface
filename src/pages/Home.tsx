@@ -11,8 +11,8 @@ const Home = () => {
                 Gerencie suas finanças com o <span>KnaipBills</span>
               </h1>
               <p>
-                Uma plataforma simples e eficiente para controlar suas despesas. Organize suas
-                finanças pessoais ou do seu negócio com facilidade.
+                Uma plataforma simples e eficiente para controlar suas despesas e receitas. Organize
+                suas finanças pessoais ou do seu negócio com facilidade.
               </p>
             </div>
             <div>
