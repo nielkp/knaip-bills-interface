@@ -1,5 +1,5 @@
-import { signOut as firebaseSignOut, signInWithPopup } from 'firebase/auth';
-import { createContext, type ReactNode, useContext, useState } from 'react';
+import { signOut as firebaseSignOut, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 import { firebaseAuth, googleAuthProvider } from '../config/firebase';
 import type { AuthState } from '../types/auth';
 
@@ -18,23 +18,52 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     loading: false,
   });
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(
+      firebaseAuth,
+      (user) => {
+        if (user) {
+          setAuthState({
+            user: {
+              uid: user.uid,
+              email: user.email,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+            },
+            error: null,
+            loading: false,
+          });
+        } else {
+          setAuthState({ user: null, error: null, loading: false });
+        }
+      },
+      (error) => {
+        console.error('Erro na Autenticação.');
+        setAuthState({ user: null, error: error.message, loading: false });
+      },
+    );
+
+    return () => unsubscribe();
+  }, []);
+
   const signWithGoogle = async (): Promise<void> => {
-    setAuthState((prevState) => ({ ...prevState, loading: true }));
+    setAuthState((prev) => ({ ...prev, loading: true }));
+
     try {
-      const result = await signInWithPopup(firebaseAuth, googleAuthProvider);
-      setAuthState({ user: result.user, error: null, loading: false });
+      await signInWithPopup(firebaseAuth, googleAuthProvider);
     } catch (err) {
-      setAuthState({ user: null, error: err, loading: false });
+      const message = err instanceof Error ? err.message : 'Erro ao tentar logar.';
+      setAuthState((prev) => ({ ...prev, loading: false, error: message }));
     }
   };
 
   const signOut = async (): Promise<void> => {
-    setAuthState((prevState) => ({ ...prevState, loading: true }));
+    setAuthState((prev) => ({ ...prev, loading: true }));
     try {
       await firebaseSignOut(firebaseAuth);
-      setAuthState({ user: null, error: null, loading: false });
     } catch (err) {
-      setAuthState({ user: null, error: err, loading: false });
+      const message = err instanceof Error ? err.message : 'Erro ao tentar logar.';
+      setAuthState((prev) => ({ ...prev, loading: false, error: message }));
     }
   };
 
