@@ -52,3 +52,10 @@ body {
 .glow{
   animation: glow 2s ease-in-out infinite alternate;
 }
+
+.bg-red-500 {
+  background-color: #FF5873; /* Vermelho */
+}
+.bg-green-500 {
+  background-color: rgba(55, 227, 89, 0.7); /* Verde */
+}
