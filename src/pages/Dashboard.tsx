@@ -1,9 +1,25 @@
 import { ArrowDown, ArrowUp, TrendingUp, Wallet } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
 import Card from '../components/Card';
 import MonthYearSelect from '../components/MonthYearSelect';
 import { getTransactionsSummary } from '../services/transactionService';
 import type { TransactionSummary } from '../types/transactions';
+
+interface ExpenseCategory {
+  percentage: number;
+  categoryColor: string;
+  categoryName: string;
+}
 
 const initialSummary: TransactionSummary = {
   balance: 0,
@@ -12,10 +28,10 @@ const initialSummary: TransactionSummary = {
   expensesByCategory: [],
 };
 
-const createPieSlices = (data) => {
+const createPieSlices = (data: ExpenseCategory[]) => {
   let cumulativePercentage = 0;
 
-  return data.map((item, index) => {
+  return data.map((item: ExpenseCategory, index: number) => {
     const startAngle = cumulativePercentage * 3.6;
     const endAngle = (cumulativePercentage + item.percentage) * 3.6;
 
@@ -43,9 +59,8 @@ const createPieSlices = (data) => {
     const midAngle = (startAngle + endAngle) / 2;
     const midAngleRad = (midAngle * Math.PI) / 180;
 
-    // Ajuste os raios para que as linhas fiquem mais próximas do gráfico
-    const lineRadius = radius + 10; // Aumente o valor para aproximar as linhas
-    const lineEndRadius = lineRadius + 15; // Aumente o valor para aproximar as linhas
+    const lineRadius = radius + 10;
+    const lineEndRadius = lineRadius + 15;
 
     const midX = cx + lineRadius * Math.cos(midAngleRad);
     const midY = cy + lineRadius * Math.sin(midAngleRad);
@@ -75,10 +90,12 @@ const createPieSlices = (data) => {
 const Dashboard = () => {
   const currentDate = new Date();
   const [year, setYear] = useState<number>(currentDate.getFullYear());
-  const [month, setMonth] = useState(currentDate.getMonth() + 1);
+  const [month, setMonth] = useState<number>(currentDate.getMonth() + 1);
   const [summary, setSummary] = useState<TransactionSummary>(initialSummary);
-  const [hoveredSlice, setHoveredSlice] = useState(null);
-  const [monthlyData, setMonthlyData] = useState([]);
+  const [hoveredSlice, setHoveredSlice] = useState<number | null>(null);
+  const [monthlyData, setMonthlyData] = useState<
+    { month: string; Despesas: number; Receitas: number }[]
+  >([]);
 
   const generateMonthlyData = () => {
     const months = ['Nov/2024', 'Dez/2024', 'Jan/2025', 'Fev/2025', 'Mar/2025', 'Abr/2025'];
@@ -122,8 +139,14 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <Card glowEffect hover title="Saldo" icon={<Wallet className="text-green-500" />}>
-          <p className="font-bold text-green-500">
+        <Card
+          glowEffect
+          hover
+          title="Saldo"
+          icon={<Wallet className={summary.balance < 0 ? 'text-red-500' : 'text-green-500'} />}
+          className={`${summary.balance < 0 ? 'bg-red-500/10 border-red-500' : 'bg-green-500/10 border-green-500'} transition-colors duration-300`}
+        >
+          <p className={`font-bold ${summary.balance < 0 ? 'text-red-500' : 'text-green-500'}`}>
             {summary.balance.toLocaleString('pt-BR', {
               style: 'currency',
               currency: 'BRL',

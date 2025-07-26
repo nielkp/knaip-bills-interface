@@ -45,17 +45,11 @@ body {
   }
 
   100%{
-    box-shadow: 0 0 10px rgba(55, 227, 89, 0.7);
+    box-shadow: 0 0 15px rgba(55, 227, 89, 0.7);
   }
 }
 
-.glow{
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-.bg-red-500 {
-  background-color: #FF5873; /* Vermelho */
-}
-.bg-green-500 {
-  background-color: rgba(55, 227, 89, 0.7); /* Verde */
+.glow {
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.7); /* Verde padrão */
+  transition: box-shadow 0.3s ease-in-out;
 }
