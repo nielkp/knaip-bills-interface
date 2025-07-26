@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import MonthYearSelect from '../components/MonthYearSelect';
-import { api } from '../services/api';
+import { getTransactions } from '../services/transactionService';
 
 const Dashboard = () => {
   const currentDate = new Date();
@@ -8,13 +8,13 @@ const Dashboard = () => {
   const [month, setMonth] = useState(currentDate.getMonth() + 1);
 
   useEffect(() => {
-    async function getTransactions() {
-      const response = await api.get('/transactions');
+    async function getTransactionsUser() {
+      const response = await getTransactions();
 
       console.log(response);
     }
 
-    getTransactions();
+    getTransactionsUser();
   }, []);
 
   return (
