@@ -14,7 +14,7 @@ import Card from '../components/Card';
 import MonthYearSelect from '../components/MonthYearSelect';
 import { getTransactionsMonthly, getTransactionsSummary } from '../services/transactionService';
 import type { MonthlyItem, TransactionSummary } from '../types/transactions';
-import { formatCurrency } from '../utils/formatters';
+import { formatCurrency, tooltipFormatter } from '../utils/formatters';
 
 interface ExpenseCategory {
   percentage: number;
@@ -289,7 +289,7 @@ const Dashboard = () => {
                     tickFormatter={formatCurrency}
                   />
                   <Tooltip
-                    formatter={formatCurrency}
+                    formatter={(value: number) => `R$ ${value.toFixed(2)}` as any}
                     contentStyle={{ backgroundColor: '#0E1621', borderColor: '#2A2A2A' }}
                     labelStyle={{ color: '#F8F8F8' }}
                   />

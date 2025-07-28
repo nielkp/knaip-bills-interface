@@ -4,3 +4,7 @@ export const formatCurrency = (value: number): string => {
     currency: "BRL",
   }).format(value);
 };
+
+export const tooltipFormatter = (value: number): [number, string] => {
+  return [value, `R$ ${value.toFixed(2)}`];
+};
