@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, TrendingUp, Wallet } from 'lucide-react';
+import { ArrowDown, ArrowUp, Calendar, TrendingUp, Wallet } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import {
   Bar,
@@ -12,8 +12,9 @@ import {
 } from 'recharts';
 import Card from '../components/Card';
 import MonthYearSelect from '../components/MonthYearSelect';
-import { getTransactionsSummary } from '../services/transactionService';
-import type { TransactionSummary } from '../types/transactions';
+import { getTransactionsMonthly, getTransactionsSummary } from '../services/transactionService';
+import type { MonthlyItem, TransactionSummary } from '../types/transactions';
+import { formatCurrency } from '../utils/formatters';
 
 interface ExpenseCategory {
   percentage: number;
@@ -93,19 +94,7 @@ const Dashboard = () => {
   const [month, setMonth] = useState<number>(currentDate.getMonth() + 1);
   const [summary, setSummary] = useState<TransactionSummary>(initialSummary);
   const [hoveredSlice, setHoveredSlice] = useState<number | null>(null);
-  const [monthlyData, setMonthlyData] = useState<
-    { month: string; Despesas: number; Receitas: number }[]
-  >([]);
-
-  const generateMonthlyData = () => {
-    const months = ['Nov/2024', 'Dez/2024', 'Jan/2025', 'Fev/2025', 'Mar/2025', 'Abr/2025'];
-    const data = months.map((monthLabel) => ({
-      month: monthLabel,
-      Despesas: Math.floor(Math.random() * 2000) + 500,
-      Receitas: Math.floor(Math.random() * 1500) + 800,
-    }));
-    setMonthlyData(data);
-  };
+  const [monthlyItemsData, setMonthlyItemsData] = useState<MonthlyItem[]>([]);
 
   useEffect(() => {
     async function loadTransactionsSummary() {
@@ -123,7 +112,16 @@ const Dashboard = () => {
     }
 
     loadTransactionsSummary();
-    generateMonthlyData();
+  }, [month, year]);
+
+  useEffect(() => {
+    async function loadTransactionsMonthly() {
+      const response = await getTransactionsMonthly(month, year, 4);
+      console.log(response);
+      setMonthlyItemsData(response.history);
+    }
+
+    loadTransactionsMonthly();
   }, [month, year]);
 
   return (
@@ -268,6 +266,46 @@ const Dashboard = () => {
               <p className="text-sm text-gray-300">Nenhuma despesa encontrada para este período</p>
             </div>
           )}
+        </Card>
+
+        <Card
+          icon={<Calendar size={20} className="text-primary-500" />}
+          title="Histórico Mensal"
+          className="min-h-80"
+        >
+          <div className="h-72 mt-4">
+            {monthlyItemsData.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={monthlyItemsData} margin={{ left: 30, right: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                  <XAxis
+                    dataKey="name"
+                    stroke="#94A3B8"
+                    tick={{ style: { textTransform: 'capitalize' } }}
+                  />
+                  <YAxis
+                    stroke="#94A3B8"
+                    tick={{ style: { fontSize: 14 } }}
+                    tickFormatter={formatCurrency}
+                  />
+                  <Tooltip
+                    formatter={formatCurrency}
+                    contentStyle={{ backgroundColor: '#0E1621', borderColor: '#2A2A2A' }}
+                    labelStyle={{ color: '#F8F8F8' }}
+                  />
+                  <Legend layout="horizontal" verticalAlign="bottom" align="center" />
+                  <Bar dataKey="expenses" fill="#FF6384" name="Despesas" />
+                  <Bar dataKey="income" fill="#37E359" name="Receitas" />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="flex items-center justify-center h-64">
+                <p className="text-sm text-gray-300">
+                  Nenhuma despesa encontrada para este período
+                </p>
+              </div>
+            )}
+          </div>
         </Card>
       </div>
     </div>
