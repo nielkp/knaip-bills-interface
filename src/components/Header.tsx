@@ -57,10 +57,10 @@ const Header = () => {
           {/* Logo */}
           <Box display="flex" alignItems="center">
             <Typography
+              className="text-primary-500"
               variant="h6"
               sx={{
                 fontWeight: 'bold',
-                color: '#08fa00',
                 display: 'flex',
                 alignItems: 'center',
                 gap: 1,
@@ -84,11 +84,11 @@ const Header = () => {
                 variant={location.pathname === '/dashboard' ? 'contained' : 'outlined'}
                 size="small"
                 sx={{
-                  backgroundColor: location.pathname === '/dashboard' ? '#148b32' : 'transparent',
-                  color: location.pathname === '/dashboard' ? '#fff' : '#fff',
-                  borderColor: '#148b32',
+                  backgroundColor: location.pathname === '/dashboard' ? '#37E359' : 'transparent',
+                  color: location.pathname === '/dashboard' ? '#051626' : '#fff',
+                  borderColor: '#37E359',
                   '&:hover': {
-                    backgroundColor: '#148b32',
+                    backgroundColor: '#37E359',
                     color: '#fff',
                   },
                 }}
@@ -98,16 +98,15 @@ const Header = () => {
 
               <Button
                 component={Link}
-                to="/transactions"
-                variant={location.pathname === '/transactions' ? 'contained' : 'outlined'}
+                to="/transacoes"
+                variant={location.pathname === '/transacoes' ? 'contained' : 'outlined'}
                 size="small"
                 sx={{
-                  backgroundColor:
-                    location.pathname === '/transactions' ? '#148b32' : 'transparent',
-                  color: location.pathname === '/transactions' ? '#fff' : '#fff',
-                  borderColor: '#148b32',
+                  backgroundColor: location.pathname === '/transacoes' ? '#37E359' : 'transparent',
+                  color: location.pathname === '/transacoes' ? '#051626' : '#fff',
+                  borderColor: '#37E359',
                   '&:hover': {
-                    backgroundColor: '#148b32',
+                    backgroundColor: '#37E359',
                     color: '#fff',
                   },
                 }}
@@ -152,7 +151,7 @@ const Header = () => {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton component={Link} to="/transactions">
+              <ListItemButton component={Link} to="/transacoes">
                 <ListItemText primary="Transações" />
               </ListItemButton>
             </ListItem>
