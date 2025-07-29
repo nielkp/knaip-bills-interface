@@ -2,18 +2,13 @@
 
 import MenuIcon from '@mui/icons-material/Menu';
 import {
-  AppBar,
   Avatar,
-  Box,
-  Button,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  Toolbar,
-  Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
@@ -52,95 +47,96 @@ const Header = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: '#0B1621', boxShadow: 'none' }}>
-        <Toolbar sx={{ justifyContent: 'space-between', px: 2 }}>
-          {/* Logo */}
-          <Box display="flex" alignItems="center">
-            <Typography
-              className="text-primary-500"
-              variant="h6"
-              sx={{
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 1,
-              }}
-            >
-              <CircleDollarSign />
-              Knaip Bills
-            </Typography>
-          </Box>
+      {/* Header */}
+      <header className="bg-[#0B1621]">
+        <div className="container-app py-6">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <div className="flex items-center">
+              <h1 className="text-primary-500 text-xl font-bold flex items-center gap-2">
+                <CircleDollarSign />
+                Knaip Bills
+              </h1>
+            </div>
 
-          {/* Menu Mobile ou Botões Desktop */}
-          {isMobile ? (
-            <IconButton size="large" edge="start" color="inherit" onClick={toggleDrawer}>
-              <MenuIcon />
-            </IconButton>
-          ) : (
-            <Box display="flex" gap={2}>
-              <Button
-                component={Link}
-                to="/dashboard"
-                variant={location.pathname === '/dashboard' ? 'contained' : 'outlined'}
-                size="small"
-                sx={{
-                  backgroundColor: location.pathname === '/dashboard' ? '#37E359' : 'transparent',
-                  color: location.pathname === '/dashboard' ? '#051626' : '#fff',
-                  borderColor: '#37E359',
-                  '&:hover': {
-                    backgroundColor: '#37E359',
-                    color: '#fff',
-                  },
-                }}
-              >
-                Dashboard
-              </Button>
-
-              <Button
-                component={Link}
-                to="/transacoes"
-                variant={location.pathname === '/transacoes' ? 'contained' : 'outlined'}
-                size="small"
-                sx={{
-                  backgroundColor: location.pathname === '/transacoes' ? '#37E359' : 'transparent',
-                  color: location.pathname === '/transacoes' ? '#051626' : '#fff',
-                  borderColor: '#37E359',
-                  '&:hover': {
-                    backgroundColor: '#37E359',
-                    color: '#fff',
-                  },
-                }}
-              >
-                Transações
-              </Button>
-            </Box>
-          )}
-
-          {/* Perfil */}
-          <Box display="flex" alignItems="center" gap={1}>
-            <Avatar
-              alt={user?.displayName || 'Usuário'}
-              src={user?.photoURL || ''}
-              sx={{ width: 30, height: 30 }}
-            />
-            {!isMobile && (
-              <>
-                <Typography variant="body2" sx={{ color: '#f4f4f5' }}>
-                  {user?.displayName || 'Usuário'}
-                </Typography>
-                <IconButton onClick={handleLogout} size="small" sx={{ color: '#f4f4f5' }}>
-                  <LogOut size={18} />
+            {/* Menu Mobile ou Botões Desktop */}
+            {isMobile ? (
+              <div className="flex items-center gap-3">
+                {/* User Profile Mobile */}
+                <div className="flex items-center gap-2">
+                  <Avatar
+                    alt={user?.displayName || 'Usuário'}
+                    src={user?.photoURL || ''}
+                    sx={{ width: 32, height: 32 }}
+                  />
+                  <span className="text-white text-sm font-medium">
+                    {user?.displayName || 'Usuário'}
+                  </span>
+                </div>
+                {/* Menu Button */}
+                <IconButton
+                  size="large"
+                  edge="start"
+                  onClick={toggleDrawer}
+                  sx={{ color: '#37E359' }}
+                >
+                  <MenuIcon />
                 </IconButton>
-              </>
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                {/* Navigation Links */}
+                <div className="flex gap-2">
+                  <Link
+                    to="/dashboard"
+                    className={`px-4 py-2.5 rounded-xl font-semibold transition-all flex items-center justify-center ${
+                      location.pathname === '/dashboard'
+                        ? 'bg-primary-500 text-[#051626]'
+                        : 'border border-primary-500 text-white hover:bg-primary-500 hover:text-[#051626]'
+                    }`}
+                  >
+                    Dashboard
+                  </Link>
+
+                  <Link
+                    to="/transacoes"
+                    className={`px-4 py-2.5 rounded-xl font-semibold transition-all flex items-center justify-center ${
+                      location.pathname === '/transacoes'
+                        ? 'bg-primary-500 text-[#051626]'
+                        : 'border border-primary-500 text-white hover:bg-primary-500 hover:text-[#051626]'
+                    }`}
+                  >
+                    Transações
+                  </Link>
+                </div>
+
+                {/* User Profile */}
+                <div className="flex items-center gap-2 ml-4">
+                  <Avatar
+                    alt={user?.displayName || 'Usuário'}
+                    src={user?.photoURL || ''}
+                    sx={{ width: 32, height: 32 }}
+                  />
+                  <span className="text-white text-sm font-medium">
+                    {user?.displayName || 'Usuário'}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className="text-white hover:text-primary-500 transition-colors p-1"
+                  >
+                    <LogOut size={18} />
+                  </button>
+                </div>
+              </div>
             )}
-          </Box>
-        </Toolbar>
-      </AppBar>
+          </div>
+        </div>
+      </header>
 
       {/* Drawer Mobile */}
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
-        <Box
-          sx={{ color: 'white', width: 250, backgroundColor: '#0B1621', height: '100%' }}
+        <div
+          className="w-64 h-full bg-[#0B1621] text-white"
           role="presentation"
           onClick={toggleDrawer}
         >
@@ -162,7 +158,7 @@ const Header = () => {
               </ListItemButton>
             </ListItem>
           </List>
-        </Box>
+        </div>
       </Drawer>
     </>
   );
