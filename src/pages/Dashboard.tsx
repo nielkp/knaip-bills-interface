@@ -14,7 +14,7 @@ import Card from '../components/Card';
 import MonthYearSelect from '../components/MonthYearSelect';
 import { getTransactionsMonthly, getTransactionsSummary } from '../services/transactionService';
 import type { MonthlyItem, TransactionSummary } from '../types/transactions';
-import { formatCurrency, tooltipFormatter } from '../utils/formatters';
+import { formatCurrency } from '../utils/formatters';
 
 interface ExpenseCategory {
   percentage: number;
@@ -127,7 +127,7 @@ const Dashboard = () => {
   return (
     <div className="container-app">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-        <h1 className="text-2xl font-bold mb-4 md:mb-0">DashBoard</h1>
+        <h1 className="text-2xl font-bold mb-4 md:mb-0">Dashboard</h1>
         <MonthYearSelect
           month={month}
           year={year}
