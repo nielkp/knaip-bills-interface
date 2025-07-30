@@ -53,7 +53,11 @@ const MonthYearSelect = ({ month, onMonthChange, year, onYearChange }: MonthYear
   return (
     <div className="flex items-center justify-between bg-gray-900 rounded-lg p-3 border border-gray-700">
       {/* ICONE DO LUCID REACT */}
-      <CalendarMinus2 />
+      <CalendarMinus2
+        className="rounded-md hover:bg-gray-800 hover:text-primary-500 transition-colors cursor-pointer"
+        aria-label="Mês Anterior"
+        onClick={handlePreviusMonth}
+      />
       {/* BOTAO // MÊS ANTERIOR */}
       <button
         type="button"
@@ -111,7 +115,11 @@ const MonthYearSelect = ({ month, onMonthChange, year, onYearChange }: MonthYear
         <ChevronRight />
       </button>
       {/* ICONE DO LUCID REACT */}
-      <CalendarPlus2 />
+      <CalendarPlus2
+        className="rounded-md hover:bg-gray-800 hover:text-primary-500 transition-colors cursor-pointer"
+        aria-label="Mês Anterior"
+        onClick={handleNextMonth}
+      />
     </div>
   );
 };
