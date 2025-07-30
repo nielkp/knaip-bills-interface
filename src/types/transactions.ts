@@ -18,6 +18,14 @@ export interface Transaction {
   createdAt: string | Date;
 }
 
+export interface CreateTransactionDTO { // DTO = Data Transfer Object!
+  description: string;
+  amount: number;
+  date: Date | string;
+  categoryId: number;
+  type: TransactionType;
+}
+
 export interface TransactionFilter {
   month: number;
   year: number;

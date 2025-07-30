@@ -29,7 +29,6 @@ const Input = ({ fullWidth, icon, label, error, id, className, ...rest }: InputP
 
         <input
           id={inputId}
-          {...rest}
           className={`block w-full rounded-xl border ${
             error ? 'border-red-500' : 'border-gray-700'
           } bg-gray-800 px-4 py-3 text-sm text-gray-50 
