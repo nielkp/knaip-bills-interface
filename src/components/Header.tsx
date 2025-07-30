@@ -13,7 +13,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { getAuth, onAuthStateChanged, signOut, type User } from 'firebase/auth';
-import { CircleDollarSign, LogOut } from 'lucide-react';
+import { ChartNoAxesCombined, LogOut } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ const Header = () => {
             {/* Logo */}
             <div className="flex items-center">
               <h1 className="text-primary-500 text-xl font-bold flex items-center gap-2">
-                <CircleDollarSign />
+                <ChartNoAxesCombined />
                 Knaip Bills
               </h1>
             </div>
