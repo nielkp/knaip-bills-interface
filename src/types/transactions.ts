@@ -22,7 +22,7 @@ export interface CreateTransactionDTO { // DTO = Data Transfer Object!
   description: string;
   amount: number;
   date: Date | string;
-  categoryId: number;
+  categoryId: string;
   type: TransactionType;
 }
 
